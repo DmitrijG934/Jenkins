@@ -12,12 +12,22 @@ pipeline {
     stages {
         stage("Preparation") {
             steps {
-                sh 'ssh root@ubuntu \'hostname\''
+                sh 'ssh ubuntu@ubuntu \'hostname\''
             }
         }
         stage("Log \"man uptime\" command") {
             steps {
-                sh 'ssh root@ubuntu \'man uptime\''
+                sh 'ssh ubuntu@ubuntu \'man uptime\''
+            }
+        }
+        stage("Log Docker version") {
+            steps {
+                sh 'ssh ubuntu@ubuntu \'docker version\''
+            }
+        }
+        stage("Log all docker containers") {
+            steps {
+                sh 'ssh ubuntu@ubuntu \'docker ps -a\''
             }
         }
     }
