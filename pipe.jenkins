@@ -15,9 +15,9 @@ pipeline {
                 sh 'ssh root@ubuntu \'hostname\''
             }
         }
-        stage("Log Docker version") {
+        stage("Log \"man uptime\" command") {
             steps {
-                sh 'ssh root@ubuntu \'docker version\''
+                sh 'ssh root@ubuntu \'man uptime\''
             }
         }
     }
