@@ -1,0 +1,19 @@
+#!groovy
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent {
+        label 'master'
+    }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifcatNumToKeepStr: '1'))
+        timestamps()
+    }
+    stages {
+        stage("Preparation") {
+            steps {
+                sh 'ssh root@ubuntu \'hostname\''
+            }
+        }
+    }
+}
